@@ -24,6 +24,8 @@ import {
   SelectValue
 } from "@/components/ui/select";
 
+const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL;
+
 export default function SupportPage() {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
@@ -45,7 +47,10 @@ export default function SupportPage() {
 
     try {
       // REPLACE WITH YOUR ACTUAL N8N WEBHOOK TEST URL
-      await fetch("http://localhost:5678/webhook-test/d8a14407-7211-4d41-b1d2-8e369742433a", {
+      if (!N8N_WEBHOOK_URL) {
+        throw new Error("N8N_WEBHOOK_URL is not configured");
+      }
+      await fetch(N8N_WEBHOOK_URL, {
         method: "POST",
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },
