@@ -44,6 +44,8 @@ export default function SupportPage() {
       submittedAt: new Date().toISOString(),
     };
 
+    console.log('NEXT_PUBLIC_N8N_URL', NEXT_PUBLIC_N8N_URL)
+
 
     try {
       // REPLACE WITH YOUR ACTUAL N8N WEBHOOK TEST URL
