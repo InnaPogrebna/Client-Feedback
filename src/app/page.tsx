@@ -45,6 +45,7 @@ export default function SupportPage() {
     };
 
     console.log('NEXT_PUBLIC_N8N_URL', NEXT_PUBLIC_N8N_URL)
+    console.log('Hello')
 
 
     try {
